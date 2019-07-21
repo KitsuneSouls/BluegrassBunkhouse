@@ -1,0 +1,337 @@
+<template>
+  <div id="home">
+    <div id="main-banner">
+      <img id="logo" src="@/assets/logo_vertical.png" alt="iso" />
+      <img id="skyline" src="@/assets/SDFskyline.png" alt="Louisville skyline" />
+    </div>
+    <div id="divider">
+      <Social/>
+    </div>
+    <div id="content">
+      <div class="info">
+        <div class="container">
+          <div>
+            <h2>A kick-ass</h2>
+            <h2>Bluegrass</h2>
+            <h2>Local Life</h2>
+            <h2>Experience</h2>
+          </div>
+        </div>
+        <div class="container">
+          <div>
+            <p>
+              Welcome to the Bluegrass Bunkhouse y’all! We’re
+              your modern hostel home in the touristic heart of
+              Louisville, Kentucky. Experience the unbridaled
+              spirit and culture of our Derby city through all its
+              sites, sounds and flavors & connect with other doers
+              and dreamers while living the local life.
+            </p>
+            <p>
+              The world may know of our Colonel’s finger lickin’
+              good Kentucky Fried Chicken, 3 time world heavy
+              weight boxing champion Muhammad Ali, and that
+              between Indiana and Kentucky lies a beautiful
+              river of Bourbon (okay, wishful thinking!), but our
+              city truly has a bit of sumthin’ for everyone—the
+              great outdoors, a nationally ranked food scene,
+              sporting events, music festivals, and last call is 4am!
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="our-story">
+        <div class="container">
+          <div>
+            <h3>Our Story</h3>
+            <p>
+              Co-Founders Hayley Smith and Brittney Ridge met
+              through a network of international expats & local
+              young professionals, looking to make new friends
+              and positively contribute to the city of Louisville.
+              As travel hungry millennials determined to see as
+              much of the world as possible & while on a very
+              tight budget, hosteling afforded them the most
+              authentic and memorable experiences. We are
+              thrilled and proud to say that other adventurers
+              and travelers will soon have the same amazing
+              opportunity to explore and experience our city at
+              the Bluegrass Bunkhouse. Welcome to our home!
+            </p>
+          </div>
+        </div>
+        <div class="container">
+          <img src="@/assets/stamp.png" alt="Bluegrass Bunkhouse Stamp" />
+        </div>
+      </div>
+      <div id="founders">
+        <div class="founder">
+          <img src="@/assets/cf1.jpg" alt="Hayley Smith" />
+          <div class="details">
+            <h4>Hayley Smith</h4>
+            <h5>Co-Founder | Designer |Travel Ambassador | Not Your Average Gringo</h5>
+            <p>
+              Favorite local restaurant: Con Huevos & Mayan Cafe.
+              <br />Where you’ll most likely find her: Salsa dancing or hiking at the Red River Gorge.
+              <br />Number of countries visited: 30 and forever counting!
+              <br />Most memorable travel experience: 4 day hike to the Choquequirao ruins in Peru.
+              <br />Spoken Languages: English & Spanglish.
+            </p>
+          </div>
+        </div>
+        <div class="founder">
+          <img src="@/assets/cf2.jpeg" alt="Brittney Ridge" />
+          <div class="details">
+            <h4>Brittney Ridge</h4>
+            <h5>Co-Founder | Community Developer | Bad Ass</h5>
+            <p>
+              Favorite local restaurants: Havana Rumba & Kashmir.
+              <br />Dream gig: Comedian.
+              <br />Favorite adventure: Waterfalling, wake surfing, cliff jumping & sailing.
+              <br />Places she’s lived: Belize, Botswana, & Mauritius.
+              <br />Spoken languages: English | Lost languages: French.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <Footer/>
+  </div>
+</template>
+
+<script>
+import Footer from "@/components/Footer.vue";
+import Social from "@/components/Social.vue";
+
+export default {
+  data() {
+    return {};
+  },
+  components: {
+        Footer,
+        Social
+    },
+  methods: {}
+};
+</script>
+
+
+<style lang="scss" scoped>
+// Theme
+@import "../stylesheets/theme";
+
+#main-banner {
+  height: 100vh;
+  background-image: url("../assets/bg1.jpg");
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  z-index: 0;
+
+  #logo {
+    height: 45vh;
+    position: absolute;
+    align-self: center;
+
+    @include large {
+      top: 15vh;
+    }
+  }
+
+  #skyline {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+#divider {
+  height: 9vh;
+  background-color: color(sColor);
+  display: flex;
+  justify-content: center;
+
+  #temp-btn {
+    display: flex;
+    flex-flow: column;
+    align-self: center;
+    padding: 1.2rem 0.65rem;
+    margin: 0 1.5rem;
+    background-color: color(pColor);
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    font-family: font(pFont);
+
+    &:hover {
+      background-color: color(sGray);
+    }
+  }
+}
+
+#content {
+  .info,
+  .our-story {
+    min-height: 45vh;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include medium {
+      flex-wrap: nowrap;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      padding: 15px;
+
+      @include medium {
+        width: 50%;
+      }
+
+      div {
+        align-self: center;
+
+        h2,
+        h3 {
+          font-family: font(tFont);
+          text-transform: uppercase;
+          padding: 4px;
+          text-align: center;
+        }
+
+        p {
+          font-family: font(pFont);
+          padding: 10px;
+        }
+      }
+    }
+  }
+
+  .info {
+    background-image: url("../assets/bg2.jpg");
+
+    .container {
+      background-color: transparentize(color(pColor), 0.22);
+      padding-top: 7vh;
+
+      @include medium {
+          padding: 15px;
+      }
+
+      h2 {
+        font-size: 40px;
+        color: color(accent);
+      }
+
+      h2:nth-child(2) {
+        color: color(highlight);
+      }
+
+      h2:nth-child(3) {
+        color: color(sColor);
+      }
+
+      p {
+        color: #fff;
+      }
+
+      &:nth-child(2) {
+          padding-top: 0;
+          padding-bottom: 7vh;
+          text-align: center;
+
+          @include medium {
+          padding: 15px;
+          text-align: left;
+      }
+      }
+    }
+  }
+
+  .our-story {
+    background-color: color(sColor);
+
+    .container {
+        padding: 4vh 15px;
+
+        @include medium {
+            padding: 15px;
+        }
+
+      h3 {
+        font-size: 25px;
+      }
+
+      p {
+        text-align: center;
+      }
+
+      &:nth-child(2) {
+        background-image: url("../assets/founders.jpg");
+        background-size: cover;
+        background-position: center;
+        min-height: 300px;
+
+        img {
+          height: 6rem;
+          background-color: color(pColor);
+          border-radius: 50px;
+          position: relative;
+          top: 6vh;
+        }
+      }
+    }
+  }
+
+  #founders {
+    background-image: url("../assets/bg3.jpg");
+    background-size: cover;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .founder {
+      height: 50%;
+      display: flex;
+      padding: 15px;
+      width: 100%;
+
+      @include large {
+        width: 45%;
+      }
+
+      img {
+        margin-right: 20px;
+        height: 9rem;
+        border-radius: 100px;
+        border: 4px solid #fff;
+      }
+
+      .details {
+        h4 {
+            font-family: font(tFont);
+            font-size: 20px;
+        }
+
+        h5 {
+            font-family: font(pFont);
+            letter-spacing: .2px;
+            font-size: 17px;
+            padding-bottom: 15px;
+        }
+
+        p{
+            font-family: font(pFont);
+            font-size: 16px;
+        }
+      }
+    }
+  }
+}
+</style>
+

@@ -1,0 +1,57 @@
+//Fonts ***IMPORTED IN THE APP.VUE***
+$fonts: (
+  pFont: "Centuri Gothic",
+  sFont: "Calibre Regular",
+  tFont: "SouvenirBold",
+  fFont: "SouvenirLightBold"
+);
+
+@function font($font-name) {
+  @return map-get($fonts, $font-name);
+}
+
+// Colors
+$colors: (
+  pColor: #022b3a,
+  sColor: #ff8966,
+  tColor: #ffffff,
+  accent: #d2b671,
+  highlight: #3abd9e,
+  pGray: #ccc,
+  sGray: #666
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+// Breakpoints
+$small: 576px;
+$medium: 768px;
+$large: 992px;
+$extralarge: 1200px;
+
+// Small devices (landscape phones, 576px and up)
+@mixin small {
+  @media (min-width: #{$small}) {
+    @content;
+  }
+}
+// Medium devices (tablets, 768px and up)
+@mixin medium {
+  @media (min-width: #{$medium}) {
+    @content;
+  }
+}
+// Large devices (desktops, 992px and up)
+@mixin large {
+  @media (min-width: #{$large}) {
+    @content;
+  }
+}
+// Extra large devices (large desktops, 1200px and up)
+@mixin extralarge {
+  @media (min-width: #{$extralarge}) {
+    @content;
+  }
+}
