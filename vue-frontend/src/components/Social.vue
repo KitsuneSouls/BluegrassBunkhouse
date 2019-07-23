@@ -5,11 +5,16 @@
         <i class="fab fa-facebook"></i>
       </a>
     </li>
-    <!-- <li>
-            <a href>
-              <i class="fab fa-twitter"></i>
-            </a>
-    </li>-->
+    <li>
+      <a href="https://twitter.com/BluegrassBunks">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.youtube.com/channel/UCm0lG1i-roaTr68p1MI7Yhg">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </li>
     <li>
       <a href="https://www.instagram.com/bluegrassbunkhouse/">
         <i class="fab fa-instagram"></i>
@@ -29,33 +34,30 @@ export default {
 @import "../stylesheets/theme";
 
 .social-media-links {
-    display: inline-flex;
-    list-style: none;
-    align-self: center;
-    margin: 10px;
+  display: inline-flex;
+  list-style: none;
+  align-self: center;
+  margin: 10px;
 
-    li {
-        margin: 0.5rem;
+  li {
+    margin: 0.5rem;
 
-        a {
-            padding: 0.5rem 0.65rem;
-            border: 2px solid #fff;
-            border-radius: 100px;
+    a {
+      padding: 0.5rem 0.65rem;
 
-            i {
-            color: #fff;
-            }
+      i {
+        color: #fff;
+      }
 
-            &:hover {
-            color: color(highlight);
-            border: 2px solid color(highlight);
+      &:hover {
+        color: color(pColor);
 
-            i {
-                color: color(highlight);
-            }
-            }
+        i {
+          color: color(pColor);
         }
+      }
     }
+  }
 }
 </style>
 

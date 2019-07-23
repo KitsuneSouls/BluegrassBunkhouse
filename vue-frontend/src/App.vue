@@ -1,11 +1,23 @@
 <template>
   <div id="app">
+    <!-- Modals -->
+    <modal name="holler" class="modal" :adaptive="true" :height="320">
+      <div class="subscribe">
+        <h1>STAY IN THE KNOW</h1>
+        <p>Subscribe and get the scoop on our progress!</p>
+        <form action="https://formspree.io/holler@bluegrassbunkhouse.com" method="POST">
+          <input type="text" name="name" placeholder="Name">
+          <input type="email" name="_replyto" placeholder="Email">
+          <input type="submit" value="Send" class="btn">
+        </form>
+      </div>
+    </modal>
     <!-- Navigation Bar -->
     <nav id="navbar">
       <router-link to="/" id="home-logo">
         <img src="@/assets/logo.png" alt="iso" />
       </router-link>
-      <div id="temp-btn">COMING SOON</div>
+      <div id="temp-btn" v-on:click="holler()">BUNKHOUSE NEWS!</div>
       <!-- <div
         id="menuicon"
         v-bind:class="{ active: displayMenu }"
@@ -47,7 +59,11 @@ export default {
       displayMenu: false
     };
   },
-  computed: {}
+  methods: {
+    holler() {
+      this.$modal.show('holler');
+    }
+  }
 };
 </script>
 
@@ -58,8 +74,8 @@ export default {
 @import "./stylesheets/theme";
 // Fonts
 @font-face {
-  font-family: "Centuri Gothic";
-  src: url("./assets/fonts/CenturiGothic.ttf") format("truetype");
+  font-family: "Century Gothic";
+  src: url("./assets/fonts/CenturyGothic.ttf") format("truetype");
 }
 @font-face {
   font-family: "SouvenirBold";
@@ -77,6 +93,10 @@ export default {
 #app {
   font-family: fonts(pFont), cursive;
   font-family: fonts(sFont), sans-serif;
+
+  p {
+    line-height: 25.2px;
+  }
 }
 
 #navbar {
@@ -117,7 +137,7 @@ export default {
     font-family: font(pFont);
 
     &:hover {
-      background-color: color(pGray);
+      background-color: darken($color: color(accent), $amount: 5)
     }
   }
 
@@ -309,6 +329,77 @@ export default {
 
     &:hover {
       color: color(pGray);
+    }
+  }
+}
+
+.modal {
+  display: flex;
+
+  .v--modal-background-click {
+    background-color: #00000063;
+  }
+
+  .v--modal {
+    border-radius: 10px;
+    background-color: color(pColor);
+  }
+  
+}
+
+.subscribe{
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  height: 100%;
+
+  h1, p, form {
+    align-self: center;
+  }
+
+  h1 {
+    font-family: font(tFont);
+    font-size: 40px;
+    color: #FFF;
+  }
+
+  p {
+    font-family: font(pFont);
+    color: color(pGray);
+  }
+
+  form {
+    padding-top: 20px;
+    display: flex;
+    flex-flow: column;
+    width: 70%;
+
+    input {
+      border-radius: 50px;
+      border: none;
+      align-self: center;
+      margin: 5px 0;
+      padding: 10px 15px; 
+      width: 100%;
+      height: auto;
+      font-family: font(pFont);
+
+      &.btn {
+        font-family: font(tFont);
+        font-size: 25px;
+        margin-top: 20px;
+        background-color: color(sColor);
+        color: #fff;
+        cursor: pointer;
+
+        &:hover {
+          background-color: darken($color: color(sColor), $amount: 5)
+        }
+      }
+
+      &:focus {
+        outline: none;
+      }
     }
   }
 }

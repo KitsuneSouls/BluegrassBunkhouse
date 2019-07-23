@@ -1,6 +1,11 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import App from './App.vue';
 import router from "./router";
+import VueRellax from 'vue-rellax';
+import VModal from 'vue-js-modal';
+ 
+Vue.use(VueRellax)
+Vue.use(VModal, { dynamic: true })
 
 Vue.config.productionTip = false
 
