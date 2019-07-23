@@ -135,6 +135,7 @@ export default {
     position: relative;
     z-index: 1;
     font-family: font(pFont);
+    text-align: center;
 
     &:hover {
       background-color: darken($color: color(accent), $amount: 5)

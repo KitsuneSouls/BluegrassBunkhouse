@@ -1,0 +1,16 @@
+{
+    "name": "Bluegrass Bunkhouse",
+    "short_name": "Bluegrass Bunkhouse",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#022b3a",
+    "theme_color": "#3abd9e",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "/img/logo.16ea8cf8.png",
+            "type": "image/png",
+            "sizes": "200x200 192x192 512x512"
+        }
+    ]
+}
