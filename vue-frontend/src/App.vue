@@ -59,6 +59,11 @@ export default {
       displayMenu: false
     };
   },
+  beforeCreate() {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/sw.js");
+    }
+  },
   methods: {
     holler() {
       this.$modal.show('holler');

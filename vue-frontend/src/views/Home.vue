@@ -81,7 +81,7 @@
           <img src="@/assets/cf1.jpg" alt="Hayley Smith" />
           <div class="details">
             <h4>Hayley Smith</h4>
-            <h5>Co-Founder | Designer |Travel Ambassador | Not Your Average Gringa</h5>
+            <h5>Co-Founder | Designer | Travel Ambassador | Not Your Average Gringa</h5>
             <p>
               Favorite local restaurant: <span>Con Huevos & Mayan Cafe.</span>
               <br />Where you’ll most likely find her: <span>Salsa dancing or hiking at the Red River Gorge.</span>
@@ -292,11 +292,7 @@ export default {
         font-family: font(tFont);
         padding: 20px;
         font-size: 25px;
-        color: color(highlight);
-
-        &:nth-child(1) {
-          color: color(accent);
-        }
+        color: color(accent);
       }
 
       p {
