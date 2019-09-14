@@ -1,16 +1,19 @@
 <template>
   <div id="home">
     <div id="main-banner">
-      <div id="background" v-rellax="{
+      <div
+        id="background"
+        v-rellax="{
       // Rellax Options
       // See: https://github.com/dixonandmoe/rellax#features
       speed: -2,
-    }"></div>
+    }"
+      ></div>
       <img id="logo" src="@/assets/logo_vertical.png" alt="iso" />
       <img id="skyline" src="@/assets/SDFskyline.png" alt="Louisville skyline" />
     </div>
     <div id="divider">
-      <Social/>
+      <Social />
     </div>
     <div id="content">
       <div class="info">
@@ -47,7 +50,7 @@
         </div>
         <div id="mission" class="container" v-show="mission">
           <h3>WHY BLUEGRASS BUNKHOUSE?</h3>
-          <p>Bluegrass Bunkhouse works in synergy with the local community to provide visitors an inclusive and immersive opportunity to maximize their Louisville experience. As local ambassadors, our forward-thinking approach to hospitality and short-term accommodations, in addition to our goals of cross-cultural understanding, environmental awareness, and social outreach, are vital to the health and vitality of our community. </p>
+          <p>Bluegrass Bunkhouse works in synergy with the local community to provide visitors an inclusive and immersive opportunity to maximize their Louisville experience. As local ambassadors, our forward-thinking approach to hospitality and short-term accommodations, in addition to our goals of cross-cultural understanding, environmental awareness, and social outreach, are vital to the health and vitality of our community.</p>
           <h3>OUR GOAL</h3>
           <p>Our goal is to be Louisville’s premier modern hostel and solution to the demands and desires of socially conscious, young professionals on the move. Our flexible accommodations successfully fuse a reasonable room rate with prime location and well considered design and community experiences, that foster a fresh, smart way to travel and live. Locals and travelers are invited to join our curated workshops, city tours and bar crawls, or meet, mingle and make new friends in our cafe/bar--a hub for multicultural exchanges, connections, and memories to be made in the heart of Kentucky.</p>
         </div>
@@ -83,11 +86,16 @@
             <h4>Hayley Smith</h4>
             <h5>Co-Founder | Designer | Travel Ambassador | Not Your Average Gringa</h5>
             <p>
-              Favorite local restaurant: <span>Con Huevos & Mayan Cafe.</span>
-              <br />Where you’ll most likely find her: <span>Salsa dancing or hiking at the Red River Gorge.</span>
-              <br />Number of countries visited: <span>30 and forever counting!</span>
-              <br />Most memorable travel experience: <span>4 day hike to the Choquequirao ruins in Peru.</span>
-              <br />Spoken Languages: <span>English & Spanglish.</span>
+              Favorite local restaurant:
+              <span>Con Huevos & Mayan Cafe.</span>
+              <br />Where you’ll most likely find her:
+              <span>Salsa dancing or hiking at the Red River Gorge.</span>
+              <br />Number of countries visited:
+              <span>30 and forever counting!</span>
+              <br />Most memorable travel experience:
+              <span>4 day hike to the Choquequirao ruins in Peru.</span>
+              <br />Spoken Languages:
+              <span>English & Spanglish.</span>
             </p>
           </div>
         </div>
@@ -97,21 +105,28 @@
             <h4>Brittney Ridge</h4>
             <h5>Co-Founder | Community Developer | Bad Ass</h5>
             <p>
-              Favorite local restaurants: <span>Havana Rumba & Kashmir.</span>
-              <br />Dream gig: <span>Comedian.</span>
-              <br />Favorite adventure: <span>Waterfalling, wake surfing, cliff jumping & sailing.</span>
-              <br />Places she’s lived: <span>Belize, Botswana, & Mauritius.</span>
-              <br />Spoken languages: <span>English | Lost languages: French.</span>
+              Favorite local restaurants:
+              <span>Havana Rumba & Kashmir.</span>
+              <br />Dream gig:
+              <span>Comedian.</span>
+              <br />Favorite adventure:
+              <span>Waterfalling, wake surfing, cliff jumping & sailing.</span>
+              <br />Places she’s lived:
+              <span>Belize, Botswana, & Mauritius.</span>
+              <br />Spoken languages:
+              <span>English | Lost languages: French.</span>
             </p>
           </div>
         </div>
       </div>
     </div>
-    <Footer/>
+    <Gallery />
+    <Footer />
   </div>
 </template>
 
 <script>
+import Gallery from "@/components/Gallery.vue";
 import Footer from "@/components/Footer.vue";
 import Social from "@/components/Social.vue";
 
@@ -122,9 +137,10 @@ export default {
     };
   },
   components: {
-        Footer,
-        Social
-    },
+    Gallery,
+    Footer,
+    Social
+  },
   methods: {}
 };
 </script>
@@ -259,7 +275,7 @@ export default {
         color: #fff;
       }
 
-      .btn{
+      .btn {
         border: 1.5px solid color(sColor);
         color: color(sColor);
         width: fit-content;
@@ -305,7 +321,6 @@ export default {
     background-color: color(sColor);
 
     .container {
-
       h3 {
         font-size: 25px;
       }
@@ -332,7 +347,8 @@ export default {
   }
 
   #founders {
-    background-image: linear-gradient(white, transparent), url("../assets/bg3.jpg");
+    background-image: linear-gradient(white, transparent),
+      url("../assets/bg3.jpg");
     background-size: cover;
     padding: 15px;
     display: flex;
@@ -358,24 +374,24 @@ export default {
 
       .details {
         h4 {
-            font-family: font(tFont);
-            font-size: 20px;
+          font-family: font(tFont);
+          font-size: 20px;
         }
 
         h5 {
-            font-family: font(pFont);
-            letter-spacing: .2px;
-            font-size: 16px;
-            padding-bottom: 15px;
+          font-family: font(pFont);
+          letter-spacing: 0.2px;
+          font-size: 16px;
+          padding-bottom: 15px;
         }
 
         p {
-            font-family: font(pFont);
-            font-size: 16px;
+          font-family: font(pFont);
+          font-size: 16px;
 
-            span {
-              font-style: italic;
-            }
+          span {
+            font-style: italic;
+          }
         }
       }
     }
