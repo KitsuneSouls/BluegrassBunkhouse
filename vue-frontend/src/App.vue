@@ -17,7 +17,7 @@
       <router-link to="/" id="home-logo">
         <img src="@/assets/logo.png" alt="iso" />
       </router-link>
-      <div id="temp-btn" v-on:click="holler()">BUNKHOUSE NEWS!</div>
+      <div id="temp-btn" v-on:click="holler()">Subscribe for Updates</div>
       <!-- <div
         id="menuicon"
         v-bind:class="{ active: displayMenu }"
