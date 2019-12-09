@@ -1,15 +1,26 @@
 <template>
   <div id="app">
-    <!-- Modals -->
-    <modal name="holler" class="modal" :adaptive="true" :height="320">
-      <div class="subscribe">
+    <!-- Modal -->
+    <modal name="holler" class="modal" :adaptive="true" :height="360">
+      <div class="subscribe" v-show="!success && !error">
         <h1>STAY IN THE KNOW</h1>
         <p>Subscribe and get the scoop on our progress!</p>
-        <form action="https://formspree.io/holler@bluegrassbunkhouse.com" method="POST">
-          <input type="text" name="name" placeholder="Name">
-          <input type="email" name="_replyto" placeholder="Email">
-          <input type="submit" value="Send" class="btn">
+        <form @submit.prevent="subscribeToMailerLite">
+          <input type="text" name="name" v-model="name" placeholder="Name" required>
+          <input type="email" name="email" v-model="email" placeholder="Email" required>
+          <input type="text" name="zip" v-model="zip" placeholder="ZIP Code" pattern="[0-9]{5}" required>
+          <button class="btn" type="submit">Send</button>
         </form>
+      </div>
+      <div class="success" v-show="success">
+        <h1>Thanks for subscribing!</h1>
+        <p>You should be hearing back from us soon</p>
+      </div>
+      <div class="error" v-show="error">
+        <h1>Ops!</h1>
+        <h1>Something went wrong!</h1>
+        <p>We couldn't subscribe you at this time.</p>
+        <p>Please send us and email at: holler@bluegrassbunkhouse.com</p>
       </div>
     </modal>
     <!-- Navigation Bar -->
@@ -53,10 +64,17 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
-      displayMenu: false
+      displayMenu: false,
+      name: null,
+      email: null,
+      zip: null,
+      success: false,
+      error: false
     };
   },
   beforeCreate() {
@@ -67,6 +85,36 @@ export default {
   methods: {
     holler() {
       this.$modal.show('holler');
+    },
+    subscribeToMailerLite(){
+      let key = "31a6bf6a404c8c17d50e39675b4f8e46";
+      axios.post(`https://api.mailerlite.com/api/v2/subscribers/?apiKey=${key}`, {
+        "name": this.name,
+        "email": this.email,
+        "fields": [
+          {
+            "key": "email",
+            "value": this.email,
+            "type": "TEXT"
+          },
+          {
+            "key": "zip",
+            "value": this.zip,
+            "type": "TEXT"
+          }
+        ],
+        "autoresponders": 1
+      },{
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(() => {
+        this.success = true;
+      })
+      .catch(() => {
+        this.error = true;
+      })
     }
   }
 };
@@ -353,7 +401,7 @@ export default {
   
 }
 
-.subscribe{
+.subscribe, .success, .error {
   display: flex;
   justify-content: center;
   flex-flow: column;
@@ -361,6 +409,7 @@ export default {
 
   h1, p, form {
     align-self: center;
+    text-align: center;
   }
 
   h1 {
@@ -380,7 +429,7 @@ export default {
     flex-flow: column;
     width: 70%;
 
-    input {
+    input, button {
       border-radius: 50px;
       border: none;
       align-self: center;

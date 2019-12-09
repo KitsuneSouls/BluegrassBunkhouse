@@ -360,6 +360,13 @@ export default {
       display: flex;
       padding: 15px;
       width: 100%;
+      flex-direction: column;
+      text-align: center;
+
+      @include small {
+        flex-direction: row;
+        text-align: start;
+      }
 
       @include extralarge {
         width: 45%;
@@ -367,9 +374,16 @@ export default {
 
       img {
         margin-right: 20px;
+        margin-bottom: 20px;
         height: 9rem;
+        width: 9rem;
         border-radius: 100px;
         border: 4px solid #fff;
+        align-self: center;
+        
+        @include small {
+          align-self: start;
+        }
       }
 
       .details {
